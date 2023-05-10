@@ -7,7 +7,7 @@ export function NoteList({notes,onRemoveNote,onOpenModal}) {
     return (
         <ul className="note-list clean-list">
             {notes.map(note =>
-                <li key={note.id} onClick={()=> onOpenModal(note.id)} >
+                <li key={note.id} onClick={()=> onOpenModal(note)} >
                     <NotePreview note={note}/>
                     <section>
                     <button onClick={() => onRemoveNote(note.id)}>x</button>
