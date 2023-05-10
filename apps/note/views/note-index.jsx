@@ -1,9 +1,10 @@
 const { useEffect, useState } = React
 const { Link, useSearchParams } = ReactRouterDOM
 
+import { NoteList } from "../cmps/note-list.jsx"
 import { noteService } from "../services/note.service.js"
 
-import{NoteList} from '../cmps/note-list.jsx'
+
 
 export function NoteIndex() {
     const [notes, setNotes] = useState([])
@@ -17,15 +18,20 @@ function loadNotes(){
 }
 
     function onRemoveNote(noteId) {
-        bookService.remove(noteId).then(() => {
+        noteService.remove(noteId).then(() => {
             const updatedNotes = notes.filter(note => note.id !== noteId)
             setNotes(updatedNotes)
     })
     }
-console.log(notes)
+
+    function onSetFilter(filterBy) {
+        setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+    }
+
+// console.log(notes)
     return(
         <section className="note-index">
-            {/* <NoteList notes={notes}/> */}
+            <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
         </section>
     ) 
 }
