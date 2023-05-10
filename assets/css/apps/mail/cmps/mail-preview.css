@@ -1,0 +1,8 @@
+.mail-preview {
+    border-radius: 2px;
+    height: 35px;
+    border: 1px solid black;
+    text-decoration: none;
+    margin: 2px;
+    background-color: aliceblue;
+}
