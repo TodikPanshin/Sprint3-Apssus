@@ -4,7 +4,7 @@ export function MailList({ mails }) {
         <ul className="mail-list">
             {mails.map(mail =>
                 <li key={mail.id}>
-                    <MailPreview mail={mail} />
+                    <Preview mail={mail} />
                     {/* <section>
                         <button onClick={() => onRemoveBook(book.id)} >Remove Book</button>
                         <button><Link to={`/book/${book.id}`} >Details</Link ></button>
