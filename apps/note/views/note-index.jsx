@@ -1,7 +1,7 @@
 const { useEffect, useState } = React
 const { Link } = ReactRouterDOM
 
-import { noteService } from '../services/note.service.js'
+import { noteService } from "../services/note.service.js"
 
 
 export function NoteIndex() {
@@ -9,7 +9,8 @@ export function NoteIndex() {
 
     useEffect(() => {
         noteService.query().then(setNotes)
-    })
+    },[])
 
+    
     return <div>note app</div>
 }
