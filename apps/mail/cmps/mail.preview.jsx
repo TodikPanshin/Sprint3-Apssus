@@ -2,9 +2,14 @@
 
 export function MailPreview({ mail }) {
 
-    const { from, subject, body, sentAt } = mail
+    let { from, subject, body, sentAt } = mail
+    const date = new Date(sentAt);
+    const options = { day: 'numeric', month: 'short' };
+    sentAt = date.toLocaleDateString('en-US', options);
+
     return (
-        <article className="mail-preview flex justify-between">
+        <article className="mail-preview flex justify-between list">
+            <input type="checkbox" name="" id="" />
             <h2>{from}</h2>
             <h2>{subject}</h2>
             <h3>{body}</h3>

@@ -72,6 +72,7 @@ function query() {
 }
 
 function get(mailId) {
+    // console.log(storageService.get(MAIL_KEY, mailId))
     return storageService.get(MAIL_KEY, mailId)
     // return axios.get(BOOK_KEY, bookId)
 }
