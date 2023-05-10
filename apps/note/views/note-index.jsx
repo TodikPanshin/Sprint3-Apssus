@@ -1,15 +1,28 @@
 const { useEffect, useState } = React
 const { Link } = ReactRouterDOM
 
-import { noteService } from '../services/note.service.js'
+import { noteService } from "../services/note.service.js"
 
+import{NoteList} from"../cmps/note-list.jsx"
 
 export function NoteIndex() {
-    const [nots, setNotes] = useState([])
+    const [notes, setNotes] = useState([])
 
     useEffect(() => {
         noteService.query().then(setNotes)
-    })
+    },[])
 
-    return <div>note app</div>
+    function onRemoveNote(noteId) {
+        bookService.remove(noteId).then(() => {
+            const updatedNotes = notes.filter(note => note.id !== noteId)
+            setNotes(updatedNotes)
+    })
+    }
+
+    return(
+        <section className="note-index">
+            <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
+
+        </section>
+    ) 
 }
