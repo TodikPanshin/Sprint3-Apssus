@@ -1,6 +1,6 @@
 // note service
 import {storageService} from '../../../services/async-storage.service.js'
-import {utilService} from'../../../services/util.service.js'
+import {utilService} from '../../../services/util.service.js'
 
 const NOTE_KEY ='noteDB'
 
@@ -57,6 +57,7 @@ function getEmptyNote(type = '',) {
 }
 
 function _createNotes() {
+    
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         _createDemoNots()
