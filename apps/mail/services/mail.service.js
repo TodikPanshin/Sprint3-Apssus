@@ -5,7 +5,7 @@ const demoData = [
     {
         id: 'e101',
         subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        body: utilService.makeLorem(300),
         isRead: false,
         sentAt: 1551133930594,
         removedAt: null,
@@ -49,7 +49,7 @@ export const mailService = {
     remove,
     save,
     // getEmptyMail,
-    // getDefaultFilter,
+    getDefaultFilter,
 }
 
 
@@ -72,7 +72,6 @@ function query() {
 }
 
 function get(mailId) {
-    // console.log(storageService.get(MAIL_KEY, mailId))
     return storageService.get(MAIL_KEY, mailId)
     // return axios.get(BOOK_KEY, bookId)
 }
@@ -87,6 +86,10 @@ function save(mail) {
     } else {
         return storageService.post(MAIL_KEY, mail)
     }
+}
+
+function getDefaultFilter() {
+    return { txt: '', isRead: '' }
 }
 
 function _createMails() {

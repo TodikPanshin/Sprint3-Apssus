@@ -6,8 +6,7 @@ const { useEffect, useState } = React
 export function MailDetails(){
     const [mail, setMail] = useState(null)
     const params = useParams()
-    console.log(params.mailId);
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     
     useEffect(() => {
@@ -16,16 +15,42 @@ export function MailDetails(){
     
     function loadMail() {
         mailService.get(params.mailId)
-        .then(()=>console.log("mail",mail))
-            // .then(setMail)
+            .then(setMail)
             .catch(err => {
                 console.log('Had issued in book details:', err);
-                // navigate('/book')
+                navigate('/book')
             })
     }
-    return (<p>{mail}</p>)
-}
 
+    function onBack() {
+        navigate('/mail')
+    }
+
+    function onRemoveMail(mailId) {
+        mailService.remove(mailId)
+        .then(()=>{
+            navigate('/mail')
+            // showSuccessMsg('Review saved')
+        })
+    }
+
+
+    if (!mail) return <div>Loading...</div>
+    
+    return (
+    <section className="mail-details grid">
+        <div className="flex justify-between">
+        <h3>from:  {mail.from}</h3>
+        <h3>sent At:  {mail.sentAt}</h3>
+
+        </div>
+        {mail.body}
+        <button onClick={onBack}>Back To Email</button>
+        <button onClick={()=>onRemoveMail(mail.id)} >Dlete This Email</button>
+    </section>
+        )
+}
+ 
 
 
 

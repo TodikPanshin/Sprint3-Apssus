@@ -4,5 +4,9 @@
     border: 1px solid black;
     text-decoration: none;
     margin: 2px;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
+}
+
+.mail-preview.is-read {
+    background-color: white;
 }
