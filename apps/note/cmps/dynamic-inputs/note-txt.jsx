@@ -1,10 +1,10 @@
 
-export function NoteTxt({note}){
+export function NoteTxt({ note,handleChange }) {
 
 
-    return(
-       <section>
-        {note.info.txt}
+    return (
+        <section >
+            <input type="text" name="NoteTxt" onChange={handleChange} value={note.info.txt} />
         </section>
     )
 }

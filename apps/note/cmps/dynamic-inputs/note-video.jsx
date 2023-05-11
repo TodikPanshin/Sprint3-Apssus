@@ -3,7 +3,7 @@ export function NoteVideo({note}){
     
         return(
            <section>
-            <video src={info.url}></video>
+            <video controls src={info.url}></video>
             </section>
         )
     }
