@@ -11,7 +11,6 @@ export function MailPreview({ mail }) {
         event.stopPropagation()
     }
 
-
     return (
         <article className={`mail-preview flex justify-between list ${isRead}`}>
             <input type="checkbox" onClick={handleCheckboxClick} name="" id="" />
