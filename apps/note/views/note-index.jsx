@@ -48,10 +48,11 @@ function loadNotes(){
     return(
 
         <section className="note-index">
-            <Header/>
+            <Header loadNotes={loadNotes}/>
             {/* <FilterNote onSetFilter={onSetFilter} filterBy={filterBy}/> */}
             <NoteList notes={notes} onRemoveNote={onRemoveNote} onOpenModal={onOpenModal}/>
             <NoteModal note={noteRef.current} onClose={()=>{setIsOpen(false)}} isOpen={isOpen}/>
+            {/* <Outlet/> */}
         </section>
             ) 
 }
