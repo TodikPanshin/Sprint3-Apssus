@@ -1,42 +1,57 @@
-.note-modal{
+.note-modal {
     position: fixed;
     inset: 0;
-    inset-block-end:-20px ;
-    background-color:rgba(0,0,0,0.3);
+    inset-block-end: -20px;
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.note-modal ul{
+
+.note-modal .modal-container {
     position: relative;
     border: 2px solid;
     border-radius: 1em;
-    background-color:var( --color2);
-    padding: 50px;
-    height: 400px;
+    background-color: var(--color2);
+    padding: 30px;
+    height: 50vh;
+    width: 50vw;
 }
-.note-modal li{
+
+.note-modal li {
     padding: 5px;
 }
 
-.note-modal button{
-background-color:var( --color2);
-height: fit-content;
-position:absolute;
-inset:0;
-inset-inline-start:70% ;
-border-radius: 1em;
-border: none;
-transition: .3s;
-padding: 0.5em 0.8em;   
+.note-modal button {
+    background-color: var(--color2);
+    height: fit-content;
+    position: absolute;
+    inset: 0;
+    inset-inline-start: 70%;
+    border-radius: 1em;
+    border: none;
+    transition: .3s;
+    padding: 0.5em 0.8em;
 }
 
 .note-modal ul button:hover {
-    
+
     background-color: var(--color2);
-  box-shadow: 0px 15px 20px rgba(25, 26, 26, 0.4);
-  /* color: #fff; */
-  transform: translateY(-7px);
+    box-shadow: 0px 15px 20px rgba(25, 26, 26, 0.4);
+    /* color: #fff; */
+    transform: translateY(-7px);
+}
+
+.note-modal ul img {
+    object-fit: scale-down;
+    max-width: 40vh;
+    max-height: 40vw; 
+}
+
+.note-modal ul video {
+    object-fit: scale-down;
+    max-width: 40vh;
+    max-height: 40vw;
 }

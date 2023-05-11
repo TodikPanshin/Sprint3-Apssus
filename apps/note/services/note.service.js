@@ -136,31 +136,83 @@ function _createDemoNots() {
             }
         },
         {
-            id: 'n102',
-            createdAt: 1112222,
+            id: utilService.makeId(),
+            createdAt: new Date(),
             type: 'NoteImg',
             isPinned: false,
             info: {
-                url: 'http://some-img/me',
-                title: 'Bobi and Me'
+                url: 'assets/img/20190101_155342.jpg',
+                title: 'sleepy'
             },
             style: {
                 backgroundColor: '#00d'
             }
         },
-        // {
-        //     id: 'n103',
-        //     createdAt: 1112222,
-        //     type: 'NoteTodos',
-        //     isPinned: false,
-        //     info: {
-        //         title: 'Get my stuff together',
-        //         todos: [
-        //             { id:utilService.makeId() ,txt: 'Driving license', doneAt: null ,isDone: false,},
-        //             { id:utilService.makeId() ,txt: 'Coding power', doneAt: 187111111,isDone: true, }
-                // ]
-            // }
-        // }
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteImg',
+            isPinned: false,
+            info: {
+                url: 'assets/img/20230508_140017.jpg',
+                title: 'pazuzu'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteImg',
+            isPinned: false,
+            info: {
+                url: 'assets/img/20211104_211342.jpg',
+                title: 'sleepy and alisa'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteImg',
+            isPinned: false,
+            info: {
+                url: 'assets/img/IMG-20140425-WA0093.jpg',
+                title: 'lady'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteVideo',
+            isPinned: false,
+            info: {
+                url: 'assets/vid/20230211_105922.mp4',
+                title: 'hati'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteTodos',
+            isPinned: false,
+            info: {
+                title: 'Get my stuff together',
+                todos: [
+                    { id:utilService.makeId() ,txt: 'Driving license', doneAt: null ,isDone: false,},
+                    { id:utilService.makeId() ,txt: 'Coding power', doneAt: 187111111,isDone: true, }
+                ]
+            }
+        }
     ]
     utilService.saveToStorage(NOTE_KEY, notes)
 }

@@ -27,7 +27,7 @@ export function NotePreview({ note }) {
     return (
         <article className="note-preview">
             
-            <DynamicCmp note={note}   />
+            <DynamicCmp note={note} handleChange={handleChange}   />
             
         </article>
 
