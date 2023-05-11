@@ -1,11 +1,22 @@
  /* note list */
-.note-list{
-display: flex;
-gap: 10px;
-}
+ .note-list {
+     display: flex;
+     gap: 10px;
+ }
 
-.note{
-background-color: aqua;
-padding: 50px;
-height: 300px;
-}
+ .note {
+     display: grid;
+     min-height: auto;
+     grid-template-rows: 1fr auto;
+     background-color: aqua;
+     height: 300px;
+     width: 200px;
+ }
+
+ .note-controller{
+  opacity: 0;  
+ }
+ 
+ .note:hover .note-controller{
+    opacity: 1;
+ }
