@@ -28,9 +28,5 @@
 
 /* note cmps */
 @import './apps/note/cmps/note-modal.css';
-<<<<<<< HEAD
-@import './apps/note/cmps/note-list.css';
-=======
 @import './apps/note/cmps/note-list.css';
 @import './apps/note/cmps/note-todo.css';
->>>>>>> 9622a81a56ce632ffff0891410005a4c42fd609e
