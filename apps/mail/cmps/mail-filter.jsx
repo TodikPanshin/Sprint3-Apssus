@@ -18,22 +18,24 @@ export function MailFilter({ filterBy, onSetFilter }) {
     // function onSubmitFilter(ev) {
     //     ev.preventDefault()
     //     onSetFilter(filterByToEdit)
+
+
+    const { txt, isRead } = filterByToEdit
+
+    return (
+        <section className="mail-filter">
+
+            {/* <form onSubmit={onSubmitFilter}> */}
+            <label htmlFor="txt"></label>
+            <input value={txt} onChange={handleChange} name="txt" id="txt" type="txt" placeholder="By Text" />
+
+            <label htmlFor="maxPrice"></label>
+            <input value={isRead} onChange={handleChange} type="checkbox" name="isRead" id="isRead" placeholder="By Is Read" />
+
+        </section>
+    )
 }
 
-const { txt, isRead } = filterByToEdit
-
-return (
-    <section className="mail-filter">
-
-        {/* <form onSubmit={onSubmitFilter}> */}
-        <label htmlFor="txt"></label>
-        <input value={txt} onChange={handleChange} name="txt" id="txt" type="txt" placeholder="By Text" />
-
-        <label htmlFor="maxPrice"></label>
-        <input value={isRead} onChange={handleChange} type="checkbox" name="isRead" id="isRead" placeholder="By Is Read" />
-
-    </section>
-)
 
 
 
@@ -53,6 +55,3 @@ return (
 
 
 
-
-
-}
