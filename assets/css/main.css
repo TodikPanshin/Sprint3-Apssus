@@ -23,10 +23,7 @@
 /* mail Cmps */
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-preview.css';
-<<<<<<< HEAD
-@import './apps/mail/cmps/mail-details.css'
-=======
+@import './apps/mail/cmps/mail-details.css';
 
 /* note cmps */
-@import './apps/note/cmps/note-modal.css'
->>>>>>> 93cd8d1fa6d7f2de560e25d3a87c2c14ef83aabb
+@import './apps/note/cmps/note-modal.css';
