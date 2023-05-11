@@ -16,9 +16,16 @@ export const noteService = {
 }
 
 
-function query() {
+function query(filterBy = {}) {
     return storageService.query(NOTE_KEY)
-//add filter
+        .then(notes => {
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                notes = notes.filter(note => regExp.test(note.info.txt))
+            }
+            return notes
+}
+)
 }
 
 function get(noteId) {
