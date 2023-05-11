@@ -15,7 +15,11 @@ export function MailDetails(){
     
     function loadMail() {
         mailService.get(params.mailId)
-            .then(setMail)
+            .then(mail => {
+                setMail(mail)
+                mail.isRead=true
+                mailService.save(mail)
+        })
             .catch(err => {
                 console.log('Had issued in book details:', err);
                 navigate('/book')
@@ -34,15 +38,13 @@ export function MailDetails(){
         })
     }
 
-
     if (!mail) return <div>Loading...</div>
     
     return (
-    <section className="mail-details grid">
+    <section className={`mail-details grid`}>
         <div className="flex justify-between">
         <h3>from:  {mail.from}</h3>
         <h3>sent At:  {mail.sentAt}</h3>
-
         </div>
         {mail.body}
         <button onClick={onBack}>Back To Email</button>

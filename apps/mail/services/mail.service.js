@@ -37,7 +37,6 @@ const MAIL_KEY = 'mailDB'
 
 _createMails()
 
-
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Mahatma Appsus'
@@ -48,25 +47,28 @@ export const mailService = {
     get,
     remove,
     save,
-    // getEmptyMail,
+    getEmptyMail,
     getDefaultFilter,
 }
-
-
-
-// function createMail() {
-// }
-
-// function mail() {
-//     txt: lorem
-//     sendFrom
-// }
-
 
 function query() {
     return storageService.query(MAIL_KEY)
         .then(mails => {
             console.log(mails);
+            return mails
+        })
+}
+
+function query(filterBy = {}) {
+    return storageService.query(MAIL_KEY)
+        .then(mails => {
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regExp.test(mail.subject))
+            }
+
+            if (filterBy.isRead === "read") mails = mails.filter(mail => mail.isRead === true)
+            else if (filterBy.isRead === "noRead") mails = mails.filter(mail => mail.isRead === false)
             return mails
         })
 }
@@ -88,8 +90,21 @@ function save(mail) {
     }
 }
 
+function getEmptyMail() {
+    return {
+        id: '',
+        subject: '',
+        body: '',
+        isRead: false,
+        sentAt: '',
+        removedAt: '',
+        from: 'user@appsus.com',
+        to: ''
+    }
+}
+
 function getDefaultFilter() {
-    return { txt: '', isRead: '' }
+    return { txt: '', isRead: false }
 }
 
 function _createMails() {
@@ -105,5 +120,3 @@ function _createMail(vendor, minPrice = 250) {
     book.id = utilService.makeId()
     return book
 }
-
-

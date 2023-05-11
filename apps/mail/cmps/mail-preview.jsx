@@ -2,22 +2,17 @@
 
 export function MailPreview({ mail }) {
 
-    let { from, subject, body, sentAt, isRead } = mail
-    const date = new Date(sentAt);
-    const options = { day: 'numeric', month: 'short' };
-    sentAt = date.toLocaleDateString('en-US', options);
-
+    const { from, subject, body, sentAt, isRead } = mail
     const handleCheckboxClick = (event) => {
         event.stopPropagation()
     }
 
     return (
-        <article className={`mail-preview flex justify-between list ${isRead}`}>
+        <section className={`mail-preview flex align-center justify-between list ${mail.isRead ? 'opened' : ''}`}>
             <input type="checkbox" onClick={handleCheckboxClick} name="" id="" />
-            <h2>{from}</h2>
-            <h2>{subject}</h2>
-            <h3>{body.substring(0, 10) + '...'}</h3>
-            <h4>{sentAt}</h4>
-        </article>
+            <article className="from">{from}</article>
+            <article className="subject">{subject} <span className="body">{body.substring(0, 50 - subject.length) + '...'}</span></article>
+            <article className="sentAt">{sentAt}</article>
+        </section>
     )
 }

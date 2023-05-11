@@ -41,6 +41,6 @@
 }
 
 
-.no-bullet {
-    list-style-type: none;
+.block {
+    display: block;
 }

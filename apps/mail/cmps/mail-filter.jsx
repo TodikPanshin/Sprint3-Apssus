@@ -8,50 +8,39 @@ export function MailFilter({ filterBy, onSetFilter }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
+        console.log(target);
         const field = target.name
         const value = target.type === 'number' ? (+target.value || '') : target.value
+        console.log(value);
         setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [field]: value }))
-        // onSetFilter(filterByToEdit)
-
+        onSetFilter(filterByToEdit)
     }
 
-    // function onSubmitFilter(ev) {
-    //     ev.preventDefault()
-    //     onSetFilter(filterByToEdit)
+    function onSubmitFilter(ev) {
+        ev.preventDefault()
+        onSetFilter(filterByToEdit)
+        console.log('onSubmitFilter');
+    }
 
-
-    const { txt, isRead } = filterByToEdit
+    const { txt } = filterByToEdit
 
     return (
         <section className="mail-filter">
 
-            {/* <form onSubmit={onSubmitFilter}> */}
-            <label htmlFor="txt"></label>
-            <input value={txt} onChange={handleChange} name="txt" id="txt" type="txt" placeholder="By Text" />
+            <form onSubmit={onSubmitFilter}>
+                <label htmlFor="txt"></label>
+                <input value={txt} onChange={handleChange} name="txt" id="txt" type="text" placeholder="By Text" />
 
-            <label htmlFor="maxPrice"></label>
-            <input value={isRead} onChange={handleChange} type="checkbox" name="isRead" id="isRead" placeholder="By Is Read" />
+                <label htmlFor="select-isRead">Show mail:</label>
+                <select id="select-isRead" onChange={handleChange} name="isRead">
+                    {/* <option value="">Show mail</option> */}
+                    <option value="all">All</option>
+                    <option value="read">Read</option>
+                    <option value="noRead">Not Read</option>
+                </select>
+            </form>
 
         </section>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

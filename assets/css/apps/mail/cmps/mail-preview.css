@@ -1,12 +1,35 @@
 .mail-preview {
+    flex: 0, 0, auto, 0;
     border-radius: 2px;
-    height: 35px;
     border: 1px solid black;
     text-decoration: none;
     margin: 2px;
     background-color: #f0f8ff;
+    height: 30px;
 }
 
-.mail-preview.is-read {
+.mail-preview.opened {
     background-color: white;
+}
+
+.mail-preview ul {
+    padding: 0;
+    margin: 0;
+}
+
+.mail-preview p {
+    font-size: 1rem;
+}
+
+.mail-preview .subject {
+    font-weight: 600;
+}
+
+.mail-preview .subject span {
+    font-weight: 300;
+    color: gray;
+}
+
+.mail-preview:hover {
+    border-bottom: 1.5px black solid;
 }
