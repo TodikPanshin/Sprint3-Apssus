@@ -13,9 +13,11 @@ export function NoteModal({ note ,isOpen,onClose}) {
 
     return(
         <div className="note-modal" onClick={onClose}>
-            <ul onClick={ev=>ev.stopPropagation()}>
+            <ul onClick={ev=>ev.stopPropagation()} className="clean-list">
                 <button onClick={onClose}>X</button>
+                <form className='edit-note' onSubmit={onSaveNote}>
                 <li><NotePreview  note={note}/></li>
+                </form>
                 </ul>
           </div>
     )

@@ -11,6 +11,9 @@ export function NoteList({notes,onRemoveNote,onOpenModal}) {
                     <NotePreview note={note}/>
                     <section className="note-controller" onClick={ev=>ev.stopPropagation()}>
                     <button onClick={() => onRemoveNote(note.id)}>x</button>
+                    <button onClick={() => onChangeColor(note.id)}>x</button>
+                    <button onClick={() => onRemoveNote(note.id)}>x</button>
+                    
                     </section>
                 </li>
             )}

@@ -135,19 +135,19 @@ function _createDemoNots() {
                 txt: 'responsive design is the best'
             }
         },
-        // {
-        //     id: 'n102',
-        //     createdAt: 1112222,
-        //     type: 'NoteImg',
-        //     isPinned: false,
-        //     info: {
-        //         url: 'http://some-img/me',
-        //         title: 'Bobi and Me'
-        //     },
-        //     style: {
-        //         backgroundColor: '#00d'
-        //     }
-        // },
+        {
+            id: 'n102',
+            createdAt: 1112222,
+            type: 'NoteImg',
+            isPinned: false,
+            info: {
+                url: 'http://some-img/me',
+                title: 'Bobi and Me'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
         // {
         //     id: 'n103',
         //     createdAt: 1112222,
@@ -156,8 +156,8 @@ function _createDemoNots() {
         //     info: {
         //         title: 'Get my stuff together',
         //         todos: [
-        //             { txt: 'Driving license', doneAt: null },
-        //             { txt: 'Coding power', doneAt: 187111111 }
+        //             { id:utilService.makeId() ,txt: 'Driving license', doneAt: null ,isDone: false,},
+        //             { id:utilService.makeId() ,txt: 'Coding power', doneAt: 187111111,isDone: true, }
                 // ]
             // }
         // }
