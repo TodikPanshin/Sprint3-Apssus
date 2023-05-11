@@ -51,7 +51,6 @@ function loadNotes(){
             <Header/>
             {/* <FilterNote onSetFilter={onSetFilter} filterBy={filterBy}/> */}
             <NoteList notes={notes} onRemoveNote={onRemoveNote} onOpenModal={onOpenModal}/>
-            {/* <Outlet/> */}
             <NoteModal note={noteRef.current} onClose={()=>{setIsOpen(false)}} isOpen={isOpen}/>
         </section>
             ) 

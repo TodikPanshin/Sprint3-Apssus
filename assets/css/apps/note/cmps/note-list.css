@@ -1,1 +1,11 @@
  /* note list */
+.note-list{
+display: flex;
+gap: 10px;
+}
+
+.note{
+background-color: aqua;
+padding: 50px;
+height: 300px;
+}
