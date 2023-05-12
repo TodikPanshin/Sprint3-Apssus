@@ -6,3 +6,15 @@
      transform: translate(-50%, -50%);
      z-index: 9999;
  }
+
+ body {
+     background-color: #f6f8fc;
+     margin: 0;
+     padding: 0;
+ }
+
+ .mail-index {
+     display: grid;
+     grid-template-columns: 1fr 4fr;
+     gap: 1em;
+ }

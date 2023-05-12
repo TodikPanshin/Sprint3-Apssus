@@ -1,0 +1,7 @@
+.mail-navbar {
+    display: grid;
+    gap: 1em;
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}

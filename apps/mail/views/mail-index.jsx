@@ -26,10 +26,12 @@ export function MailIndex() {
     }
 
     return (
-        <section className="main-layout">
-            <MailFilter onSetFilter={onSetFilter} filterBy={filterBy} />
-            <MailList mails={mails} />
+        <section className="mail-index">
             <MailNavbar loadMails={loadMails} filterBy={filterBy} setMails={setMails} />
+            <div >
+                <MailFilter onSetFilter={onSetFilter} filterBy={filterBy} />
+                <MailList mails={mails} />
+            </div>
         </section>
 
     )
