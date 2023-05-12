@@ -34,7 +34,8 @@ export function MailEdit({ closeModal, loadMails }) {
 
 
     function onDelete() {
-        navigate('/mail')
+        loadMails()
+        closeModal()
     }
 
     const { to, subject, body } = mailToEdit
