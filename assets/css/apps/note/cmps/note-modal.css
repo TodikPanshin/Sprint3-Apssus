@@ -46,12 +46,12 @@
 
 .note-modal ul img {
     object-fit: scale-down;
-    max-width: 40vh;
-    max-height: 40vw; 
+    max-width: 100vh;
+    max-height: 30vw; 
 }
 
 .note-modal ul video {
     object-fit: scale-down;
-    max-width: 40vh;
-    max-height: 40vw;
+    max-width: 100vh;
+    max-height: 30vw;
 }
