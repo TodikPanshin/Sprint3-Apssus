@@ -1,4 +1,9 @@
  /* home */
  .home span{
     text-decoration: line-through;
+    font-size:0.8em
+ }
+
+ .sub-title{
+   font-size:3em
  }

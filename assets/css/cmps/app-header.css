@@ -1,5 +1,5 @@
 .app-header {
-    background: lightcyan;
+    background: var(--main-bg-color);
     /* border-bottom: 2px solid white; */
     padding: 0;
 }
@@ -14,12 +14,26 @@ nav a {
     margin: .5em;
 }
 
-nav a:active {
-    color: purple;
-}
-
 nav a.active {
     color: darkblue;
     font-weight: bold;
     text-decoration: overline;
+}
+
+.logo {
+    font-size: 2em;
+    color: rgb(221, 27, 27);
+}
+
+.logo>:first-child {
+    color: rgb(255, 255, 255);
+}
+
+.logo>:nth-child(2) {
+    color: rgb(255, 255, 255);
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }

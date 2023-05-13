@@ -18,9 +18,9 @@ export function NoteTodos({ note }) {
 
     const info = note.info
     return (
-        <section>
+        <section className="note-todo">
             <h3>{info.title}</h3>
-            <ul>
+            <ul className="clean-list">
                 {info.todos.map(todo =>
                     <li key={todo.id} className={todo.isDone ? "done" : ""} onClick={() => onHandleClick(todo.id)}>{todo.txt}</li>
                 )}

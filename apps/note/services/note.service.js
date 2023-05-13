@@ -1,8 +1,8 @@
 // note service
-import {storageService} from '../../../services/async-storage.service.js'
-import {utilService} from '../../../services/util.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
+import { utilService } from '../../../services/util.service.js'
 
-const NOTE_KEY ='noteDB'
+const NOTE_KEY = 'noteDB'
 
 _createNotes()
 
@@ -13,6 +13,7 @@ export const noteService = {
     save,
     getEmptyNote,
     getDefaultFilter,
+    copyNote,
 }
 
 
@@ -24,8 +25,8 @@ function query(filterBy = {}) {
                 notes = notes.filter(note => regExp.test(note.info.txt))
             }
             return notes
-}
-)
+        }
+        )
 }
 
 function get(noteId) {
@@ -51,51 +52,83 @@ function getDefaultFilter(searchParams = { get: () => { } }) {
     }
 }
 
-function getEmptyNote(type = '',) {
-    return { id: '',
-    createdAt:new Date(),
-    isPinned:false,
-    style: {
-        backgroundColor: '#00d'
-    },
-     type,
-     info:{},
+function getEmptyNote(type = 'NoteTxt') {
+    
+    return {
+        id: '',
+        createdAt: new Date(),
+        isPinned: false,
+        style: {
+            backgroundColor: '#00d'
+        },
+        type,
+        info: {},
     }
 }
 
+function copyNote(note){
+ const cloneNote= structuredClone(note)
+ cloneNote.id=''
+ cloneNote.createdAt=new Date()
+ return cloneNote
+}
+
 function _createNotes() {
-    
+
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         _createDemoNots()
     }
 }
 
-function _createNote(type = 'NoteTxt',info) {
-    const note = getEmptyNote(type)
-    note.id = utilService.makeId()
-
-    switch (note.type) {
+function _createNote(type = 'NoteTxt') {
+    switch (type) {
         case 'NoteTxt':
-            return _createNoteTxt(note,info)
-            break
+            return _createNoteTxt()
         case 'NoteImg':
-            console.log('NoteImg')
-            break
+            _createNoteImg()
         case 'NoteVideo':
-            console.log('NoteVideo')
-            break
+            _createNoteVideo()
         case 'NoteTodos':
-            console.log('NoteTodos')
-            break
-
+            _createNoteTodos()
     }
 }
 
-function _createNoteTxt(note,info){
-    return note.info=info
+function _createNoteTxt() {
+    return {
+        txt: '',
+    }
 }
 
+function _createNoteImg() {
+    return {
+        url: '',
+        title: ''
+    }
+}
+
+function _createNoteVideo() {
+    return {
+        url: '',
+        title: ''
+    }
+}
+
+function _createNoteTodos() {
+    return {
+        title: '',
+        todos:[ __createTodos()]
+    }
+}
+
+function __createTodos() {
+    return {
+        id: utilService.makeId(),
+        txt: '',
+        doneAt: null,
+        isDone: false,
+    }
+}
 
 function _createDemoNots() {
     const notes = [
@@ -143,6 +176,19 @@ function _createDemoNots() {
             info: {
                 url: 'assets/img/20190101_155342.jpg',
                 title: 'sleepy'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteImg',
+            isPinned: false,
+            info: {
+                url: 'assets/img/WhatsApp Image 2022-10-04 at 22.10.39.jpeg',
+                title: 'alisa'
             },
             style: {
                 backgroundColor: '#00d'
@@ -208,8 +254,8 @@ function _createDemoNots() {
             info: {
                 title: 'Get my stuff together',
                 todos: [
-                    { id:utilService.makeId() ,txt: 'Driving license', doneAt: null ,isDone: false,},
-                    { id:utilService.makeId() ,txt: 'Coding power', doneAt: 187111111,isDone: true, }
+                    { id: utilService.makeId(), txt: 'Driving license', doneAt: null, isDone: false, },
+                    { id: utilService.makeId(), txt: 'Coding power', doneAt: 187111111, isDone: true, }
                 ]
             }
         }

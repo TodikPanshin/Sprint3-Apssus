@@ -1,36 +1,68 @@
 const { useEffect, useState } = React
 
 import { noteService } from "../services/note.service.js"
+import { ColorInput } from "./color-input.jsx"
 import { NoteImg } from "./dynamic-inputs/note-img.jsx"
 import { NoteTodos } from "./dynamic-inputs/note-todos.jsx"
 import { NoteTxt } from "./dynamic-inputs/note-txt.jsx"
 import { NoteVideo } from "./dynamic-inputs/note-video.jsx"
- 
 
-export function NotePreview({ note }) {
+
+export function NotePreview({ note, onRemoveNote, onOpenEnlargeBackground, menuBackgroundIsOpen ,onCopyNote}) {
     const [noteToEdit, setNoteToEdit] = useState(note)
+    const [isEnlarged, setIsEnlarged] = useState(false)
+    const [isHidden, setIsHidden] = useState(true)
+
+    const [NoteStyle, setNoteStyle] = useState({
+        backgroundColor: 'lightGray'
+    })
+
+
+
+    useEffect(() => {
+        if (!menuBackgroundIsOpen) {
+            setIsEnlarged(false)
+        }
+    }, [menuBackgroundIsOpen])
 
     function handleChange({ target }) {
         const field = target.name
-        const value = target.value
-        setNoteToEdit(noteToEdit =>({ ...noteToEdit,info:{ [field]: value }}))
+        const value = target.type === 'number' ? (+target.value || '') : target.value
+        setNoteToEdit(noteToEdit => ({ ...noteToEdit, info: { [field]: value } }))
+        onSaveNote()
     }
 
+
     function onSaveNote(ev) {
-        ev.preventDefault()
-        if (!noteToEdit.info.txt) {
-            return
-        }
+        if (ev) ev.preventDefault()
         noteService.save(noteToEdit)
     }
 
-    return (
-        <article className="note-preview">
-            
-            <DynamicCmp note={note} handleChange={handleChange}   />
-            
-        </article>
+    function handleEnlarged() {
+        setIsEnlarged(true)
+        onOpenEnlargeBackground()
+    }
 
+    function onSetNoteStyle(newStyle) {
+        setNoteStyle((prevStyle) => ({ ...prevStyle, ...newStyle }))
+    }
+
+
+
+    return (
+        <li className={`note  ${(isEnlarged) ? 'enlarged' : ''}  `} onClick={() => { handleEnlarged() }} style={NoteStyle}>
+
+            <DynamicCmp note={noteToEdit} handleChange={handleChange} />
+
+            <section className="note-controller" onClick={ev => ev.stopPropagation()} >
+                <button onClick={() => onRemoveNote(note.id)}><i class="fa-regular fa-trash-can"></i></button>
+                <button onClick={() =>setIsHidden(!isHidden) } ><i class="fa-solid fa-palette"></i></button>
+                <button onClick={() => onCopyNote(note.id)}><i class="fa-solid fa-copy"></i></button>
+            <ColorInput onSetNoteStyle={onSetNoteStyle} isHidden={isHidden} />
+            </section>
+        </li>
+        
+                
     )
 }
 

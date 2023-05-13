@@ -1,4 +1,9 @@
 /* note-todo */
+.note-todo{
+    padding-block-start:10px ;
+    text-align: center;
+}
+
 .done {
     text-decoration: line-through;
 }
