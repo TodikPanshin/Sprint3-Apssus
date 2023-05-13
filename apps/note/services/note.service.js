@@ -236,6 +236,19 @@ function _createDemoNots() {
         {
             id: utilService.makeId(),
             createdAt: new Date(),
+            type: 'NoteImg',
+            isPinned: false,
+            info: {
+                url: 'assets/img/20230503_114439.jpg',
+                title: 'alisa'
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
             type: 'NoteVideo',
             isPinned: false,
             info: {
@@ -258,7 +271,20 @@ function _createDemoNots() {
                     { id: utilService.makeId(), txt: 'Coding power', doneAt: 187111111, isDone: true, }
                 ]
             }
-        }
+        },
+        {
+            id: utilService.makeId(),
+            createdAt: new Date(),
+            type: 'NoteVideo',
+            isPinned: false,
+            info: {
+                url: 'assets/vid/20230214_115234_99.mp4',
+                title: 'hati '
+            },
+            style: {
+                backgroundColor: '#00d'
+            }
+        },
     ]
     utilService.saveToStorage(NOTE_KEY, notes)
 }
