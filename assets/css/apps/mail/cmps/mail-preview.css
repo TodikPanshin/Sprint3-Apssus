@@ -39,5 +39,8 @@
 }
 
 .mail-preview:hover {
-    border-bottom: 1.5px black solid;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    border: 2px solid #dadce0;
+    background-color: #fafafa;
 }
