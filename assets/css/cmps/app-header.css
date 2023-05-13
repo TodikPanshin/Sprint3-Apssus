@@ -20,14 +20,20 @@ nav a.active {
     text-decoration: overline;
 }
 
-.logo{
-    font-size:2em;
+.logo {
+    font-size: 2em;
     color: rgb(221, 27, 27);
 }
-.logo>:first-child{
+
+.logo>:first-child {
     color: rgb(255, 255, 255);
 }
 
-.logo>:nth-child(2){
-color:rgb(255, 255, 255);
+.logo>:nth-child(2) {
+    color: rgb(255, 255, 255);
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }

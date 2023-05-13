@@ -62,11 +62,11 @@ export function Header({ loadNotes }) {
                         )}
                     </React.Fragment>
                 )}
-                <button>add</button>
+                <button><i class="fa-solid fa-plus"></i></button>
             </form>
             <section className="note-add-controller">
-            <button onClick={() => setType('NoteTxt')}>txt</button>
-            <button onClick={() => setType('NoteImg')}>img</button>
+            <button onClick={() => setType('NoteTxt')}><i class="fa-solid fa-font"></i></button>
+            <button onClick={() => setType('NoteImg')}><i class="fa-regular fa-image"></i></button>
             </section>
         </section>
     )
