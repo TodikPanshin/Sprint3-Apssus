@@ -1,21 +1,16 @@
-const { Link } = ReactRouterDOM
+const { useEffect, useState, useRef } = React
+
 
 import { NotePreview } from "./note-preview.jsx"
 
-export function NoteList({notes,onRemoveNote,onOpenModal}) {
-    
+export function NoteList(props) {
+
     return (
         <ul className="note-list clean-list">
-            {notes.map(note =>
-                <li className="note" key={note.id} onClick={()=>{onOpenModal(note)}} >
-                    <NotePreview note={note}/>
-                    <section className="note-controller" onClick={ev=>ev.stopPropagation()}>
-                    <button onClick={() => onRemoveNote(note.id)}>x</button>
-                    <button onClick={() => onChangeColor(note.id)}>x</button>
-                    <button onClick={() => onRemoveNote(note.id)}>x</button>
-                    
-                    </section>
-                </li>
+            {props.notes.map(note =>
+                <NotePreview key={note.id} note={note} onRemoveNote={props.onRemoveNote} onCopyNote={props.onCopyNote}
+                 onOpenEnlargeBackground={props.onOpenEnlargeBackground} 
+                 menuBackgroundIsOpen={props.menuBackgroundIsOpen} />
             )}
         </ul>
     )

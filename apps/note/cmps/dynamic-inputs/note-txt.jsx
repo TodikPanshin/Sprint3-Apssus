@@ -1,10 +1,13 @@
+const { useEffect, useState } = React
+export function NoteTxt({ note, handleChange, onSaveNote }) {
 
-export function NoteTxt({ note,handleChange }) {
+    const { info } = note
 
+    
 
     return (
-        <section >
-            <input type="text" name="NoteTxt" onChange={handleChange} value={note.info.txt} />
+        <section className={note.id}> 
+            <textarea type="text" name="txt" onChange={handleChange} value={info.txt} />  
         </section>
     )
 }

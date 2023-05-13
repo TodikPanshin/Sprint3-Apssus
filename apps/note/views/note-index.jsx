@@ -1,5 +1,5 @@
-const { useEffect, useState,useRef } = React
-const { Link, useSearchParams,useLocation,Outlet } = ReactRouterDOM
+const { useEffect, useState, useRef } = React
+const { Link, useSearchParams, useLocation, Outlet } = ReactRouterDOM
 
 import { Header } from "../cmps/header.jsx"
 import { NoteList } from "../cmps/note-list.jsx"
@@ -15,44 +15,50 @@ export function NoteIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter(searchParams))
     const [notes, setNotes] = useState([])
-    const [isOpen, setIsOpen] = useState(false)
-    const noteRef = useRef(null)
-    
+    const [menuBackgroundIsOpen, setMenuBackgroundIsOpen] = useState(false)
+    // const noteRef = useRef(null)
+
     useEffect(() => {
         loadNotes()
         setSearchParams(filterBy)
     }, [filterBy])
-    
 
-function loadNotes(){
-    noteService.query(filterBy).then(setNotes)
-}
+
+    function loadNotes() {
+        noteService.query(filterBy).then(setNotes)
+    }
 
     function onRemoveNote(noteId) {
         noteService.remove(noteId).then(() => {
             const updatedNotes = notes.filter(note => note.id !== noteId)
             setNotes(updatedNotes)
-    })
+        })
+    }
+
+    function onCopyNote(noteId) {
+        noteService.get(noteId)
+            .then(note => noteService.copyNote(note))
+            .then(cloneNote => { noteService.save(cloneNote) })
+            .then(()=>loadNotes)
     }
 
     function onSetFilter(filterBy) {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
 
-    function onOpenModal(note){
-        setIsOpen(true)
-        noteRef.current=note
-    }
 
-// console.log(notes)
-    return(
+    return (
 
         <section className="note-index">
-            <Header loadNotes={loadNotes}/>
+            <div className={`main-screen menu-background ${(menuBackgroundIsOpen) ? 'open' : ''}`} onClick={() => {
+                setMenuBackgroundIsOpen(false)
+            }} >
+            </div>
+            <Header loadNotes={loadNotes} />
             {/* <FilterNote onSetFilter={onSetFilter} filterBy={filterBy}/> */}
-            <NoteList notes={notes} onRemoveNote={onRemoveNote} onOpenModal={onOpenModal}/>
-            <NoteModal note={noteRef.current} onClose={()=>{setIsOpen(false)}} isOpen={isOpen}/>
-            {/* <Outlet/> */}
+            <NoteList notes={notes} onCopyNote={onCopyNote} onRemoveNote={onRemoveNote} onOpenEnlargeBackground={() => { setMenuBackgroundIsOpen(true) }} menuBackgroundIsOpen={menuBackgroundIsOpen} />
         </section>
-            ) 
+    )
 }
+
+

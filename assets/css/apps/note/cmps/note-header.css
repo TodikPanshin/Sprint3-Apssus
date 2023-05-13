@@ -1,0 +1,64 @@
+.note-header {
+    position: relative;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    box-shadow: 2px 2px 4px 2px rgba(201, 199, 199, .8);
+    padding: 20px 20px;
+    width: 600px;
+    height: 150px;
+    background-color: var(--color4);
+}
+
+.create-note {
+    display: flex;
+    justify-content: center;
+}
+
+.create-note button {
+    position: absolute;
+    inset-inline-start: 558px;
+    inset-block-start: 55px;
+    background-color:inherit
+}
+
+.note-add-controller {
+    position: absolute;
+    inset-inline-start: 537px;
+    inset-block-start: 21px;
+    background-color:var(--color4);
+}
+
+.note-add-controller button{
+    background-color:inherit;
+}
+
+.note-header input {
+    width: 600px;
+    border-style: none;
+    border-radius: 6px;
+    background-color:inherit;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 600px;
+    font-size: 1.3em;
+    color: var(--color3);
+    font-weight: 600;
+    transition: 1s;
+    outline: none;
+}
+
+.note-header .default-input {
+    outline: none;
+}
+
+.edit-NoteImg input {
+    border-style: none;
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}

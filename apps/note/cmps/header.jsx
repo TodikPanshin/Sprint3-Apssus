@@ -1,55 +1,73 @@
-import { noteService } from "../services/note.service.js"
-const { useEffect, useState } = React
+const { useEffect, useState, useRef } = React
 
-export function Header({loadNotes}) {
+
+import { noteService } from "../services/note.service.js"
+
+export function Header({ loadNotes }) {
 
     const [newNote, setNewNote] = useState(noteService.getEmptyNote())
-    const [isExpanded, setExpanded] = useState(false)
-    useEffect(() => {
-        setType('NoteTxt')
-    }, [])
+    const [isExpanded, setExpanded] = useState(true)
+
+
+
+    // useEffect(() => {
+    //     setType('NoteTxt')
+    // }, [])
 
     function handleChange({ target }) {
         const field = target.name
         const value = target.value
-        const { info } = newNote
-        if(field==='NoteTxt'){
-        setNewNote(newNote =>({ ...newNote,info:{ txt: value }}))
-    }else if(field==='NoteImg'){
-            setNewNote(newNote =>({ ...newNote,info:{ 
-                url: value,
-                title:title
-             }}))
-        }
-
-        // url: 'http://some-img/me',
-        // //         title: 'Bobi and Me'
+        setNewNote(newNote => ({ ...newNote, info: { [field]: value } }))
     }
+
 
     function onSaveNote(ev) {
         ev.preventDefault()
-        if (!newNote) return
+        console.log(ev)
+        if (!newNote.info) return
         noteService.save(newNote)
-        loadNotes()
-    }
-
-    function setType(noteType) {
-        newNote.type = noteType
-    }
-
-    function expand(){
+            .then(noteService.query())
+            .then(loadNotes)
         setExpanded(true)
     }
 
+    function setType(noteType) {
+        expand(noteType)
+    }
+
+    function expand(noteType) {
+        setExpanded(false)
+        setNewNote(noteService.getEmptyNote(noteType))
+
+    }
+    const { info } = newNote
     return (
-        <section>
+        <section className="note-header">
             <form className="create-note" onSubmit={onSaveNote}>
-            {/* {isExpanded ? <input name={newNote.type} id={newNote.type} value={newNote.info.txt} onChange={handleChange} placeholder='add new note' />: null} */}
-                <textarea name={newNote.type} id={newNote.type} onChange={handleChange} onClick={expand} value={newNote.info.txt} rows={isExpanded ? 3 : 1}/>
+                {isExpanded ? (
+                    <input className="default-input" name="default" id="default" onClick={()=>{expand("NoteTxt")}} placeholder='add new note' value='' />
+                ) : (
+                    <React.Fragment>
+                        {newNote.type === "NoteTxt" && (
+                            <div className="edit-NoteTxt">
+                                <input required type="text" name="txt" id="txt" onChange={handleChange} value={info.txt} placeholder='add new note text' />
+                            </div>
+                        )}
+                        {newNote.type === "NoteImg" && (
+                            <div className="edit-NoteImg">
+                                <input required type="text" name="title" id="title" onChange={handleChange} value={info.title} placeholder='add new img Title' />
+                                <input required type="text" name="url" id="url" onChange={handleChange} value={info.url} placeholder='add new img url' />
+
+                            </div>
+                        )}
+                    </React.Fragment>
+                )}
                 <button>add</button>
             </form>
+            <section className="note-add-controller">
             <button onClick={() => setType('NoteTxt')}>txt</button>
             <button onClick={() => setType('NoteImg')}>img</button>
+            </section>
         </section>
     )
 }

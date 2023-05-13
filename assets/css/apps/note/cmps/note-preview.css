@@ -1,0 +1,88 @@
+.note {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-color: aqua;
+    height: fit-content;
+    width: fit-content;
+    max-width: 300px;
+    min-height: 300px;
+    min-width: 200px;
+    /* max-height: 400px; */
+    transition: 0.5s;
+    border-radius: 1em;
+    font-size: 1.2em;
+}
+
+.note:hover{
+    transform: translateY(-7px);
+}
+
+.note textarea {
+    text-align: center;
+    outline: none;
+    background-color: inherit;
+    width: 300px;
+    height: 300px;
+    font-size: 1.3em;
+    resize: none;
+    border: none;
+    padding-block-start:10px ;
+}
+
+.note img {
+    border-radius: 1em;
+}
+
+.note video {
+    border-radius: 1em;
+}
+
+.note.enlarged {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    height: fit-content;
+    max-width: 70vw;
+    max-height: 70vh;
+}
+
+.note-controller {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.note:hover .note-controller {
+    opacity: 1;
+}
+
+.note.enlarged img {
+    object-fit: contain;
+    max-width: 100vh;
+    max-height: 50vw;
+}
+
+.note.enlarged video {
+    object-fit: contain;
+    max-width: 100vh;
+    max-height: 50vw;
+}
+
+.user-color-container {
+    background-color: var(--color5);
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.user-color {
+    padding: 5px;
+    min-height: 40px;
+    min-width: 40px;
+    cursor: pointer;
+    border-radius: 2em;
+    display: grid;
+    place-items: center;
+}
