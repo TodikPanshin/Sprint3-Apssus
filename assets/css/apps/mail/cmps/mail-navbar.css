@@ -8,13 +8,9 @@
 
 .mail-navbar .nb-btn {
     display: flex;
-    /* יציב את האלמנטים בשורה אחת */
     align-items: center;
-    /* מיישר את התוכן למרכז הרשימה */
     padding: 8px 12px;
-    /* מרווח לפני ואחרי האלמנט */
     cursor: pointer;
-    /* מציג סמן יד לצד העכבר */
     transition: all 0.2s ease-in-out;
     background-color: #FFFFFF;
     color: #202124;
@@ -26,12 +22,9 @@
     padding: 0 16px;
     text-align: left;
     text-decoration: none;
-
 }
 
 .mail-navbar .nb-btn:hover {
     background-color: #eee;
-    /* שם צבע רקע אפור בהתאם לדוגמה שציינת */
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-    /* מגדיל את הצל כשהעכבר נמצא מעל האלמנט */
 }
