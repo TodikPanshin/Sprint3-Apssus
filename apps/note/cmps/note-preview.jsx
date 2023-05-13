@@ -55,9 +55,9 @@ export function NotePreview({ note, onRemoveNote, onOpenEnlargeBackground, menuB
             <DynamicCmp note={noteToEdit} handleChange={handleChange} />
 
             <section className="note-controller" onClick={ev => ev.stopPropagation()} >
-                <button onClick={() => onRemoveNote(note.id)}><i class="fa-regular fa-trash-can"></i></button>
-                <button onClick={() =>setIsHidden(!isHidden) } ><i class="fa-solid fa-palette"></i></button>
-                <button onClick={() => onCopyNote(note.id)}><i class="fa-solid fa-copy"></i></button>
+                <button onClick={() => onRemoveNote(note.id)}><i className="fa-regular fa-trash-can"></i></button>
+                <button onClick={() =>setIsHidden(!isHidden) } ><i className="fa-solid fa-palette"></i></button>
+                <button onClick={() => onCopyNote(note.id)}><i className="fa-solid fa-copy"></i></button>
             <ColorInput onSetNoteStyle={onSetNoteStyle} isHidden={isHidden} />
             </section>
         </li>

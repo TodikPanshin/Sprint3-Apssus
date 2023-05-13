@@ -18,7 +18,7 @@ export function NoteTodos({ note }) {
 
     const info = note.info
     return (
-        <section className="note-todo">
+        <section className="note-todo ">
             <h3>{info.title}</h3>
             <ul className="clean-list">
                 {info.todos.map(todo =>
