@@ -50,12 +50,18 @@
 }
 
 .note-controller {
+    padding-inline-start:5px ;
     opacity: 0;
     transition: 0.5s;
 }
 
 .note:hover .note-controller {
     opacity: 1;
+}
+
+.note-controller button{
+    border-radius: 2em;
+    background-color: inherit;
 }
 
 .note.enlarged img {

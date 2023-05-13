@@ -5,7 +5,7 @@ export function AppHeader() {
     return <header className="app-header full main-layout">
         <div className="header-container">
         <Link to="/">
-            <h3 className="logo"><span>S</span>hm<span>oo</span>gle</h3>
+            <h3 className="logo"><span>S</span><span>hm</span><span>oo</span>gle</h3>
         </Link>
         <nav>
             <NavLink to="/">Home</NavLink>

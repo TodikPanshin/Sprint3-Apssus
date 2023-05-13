@@ -22,15 +22,18 @@ nav a.active {
 
 .logo {
     font-size: 2em;
-    color: rgb(221, 27, 27);
+    color:#222831;
 }
 
 .logo>:first-child {
-    color: rgb(255, 255, 255);
+    color: #393e46;
 }
 
 .logo>:nth-child(2) {
-    color: rgb(255, 255, 255);
+    color: #f96d00;
+}
+.logo>:nth-child(3) {
+    color: #7c73e6;
 }
 
 nav {

@@ -18,15 +18,16 @@
 
 .create-note button {
     position: absolute;
-    inset-inline-start: 558px;
-    inset-block-start: 55px;
+    inset-inline-start: 559px;
+    inset-block-start: 127px;
     background-color:inherit
 }
 
 .note-add-controller {
+    display: flex;
     position: absolute;
-    inset-inline-start: 537px;
-    inset-block-start: 21px;
+    inset-inline-start: 517px;
+    inset-block-start: 42px;
     background-color:var(--color4);
 }
 

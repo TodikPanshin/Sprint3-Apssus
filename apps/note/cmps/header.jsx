@@ -60,6 +60,14 @@ export function Header({ loadNotes }) {
 
                             </div>
                         )}
+
+                        {newNote.type === "NoteVideo" &&(
+                            <div className="edit-NoteVideo">
+                                <input required type="text" name="title" id="title" onChange={handleChange} value={info.title} placeholder='add new video Title' />
+                                <input required type="text" name="url" id="url" onChange={handleChange} value={info.url} placeholder='add new video url' />
+
+                            </div>
+                        )}
                     </React.Fragment>
                 )}
                 <button><i class="fa-solid fa-plus"></i></button>
@@ -67,6 +75,7 @@ export function Header({ loadNotes }) {
             <section className="note-add-controller">
             <button onClick={() => setType('NoteTxt')}><i class="fa-solid fa-font"></i></button>
             <button onClick={() => setType('NoteImg')}><i class="fa-regular fa-image"></i></button>
+            <button onClick={() => setType('NoteVideo')}><i class="fa-solid fa-video"></i></button>
             </section>
         </section>
     )
