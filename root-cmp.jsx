@@ -21,16 +21,16 @@ export function App() {
         <section className="app main-layout">
             <AppHeader />
             <main className="main-layout full">
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/mail" element={<MailIndex />} />
-                <Route path="/mail/:mailId" element={<MailDetails />} />
-                <Route path="/book/edit" element={<MailEdit />} />
-                <Route path="/note" element={<NoteIndex />}>
-                <Route path="/note/note-modal:noteId" element={<NoteModal />} />
-                </Route>
-            </Routes>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/mail" element={<MailIndex />} />
+                    <Route path="/mail/:mailId" element={<MailDetails />} />
+                    <Route path="/mail/edit" element={<MailEdit />} />
+                    <Route path="/note" element={<NoteIndex />}>
+                        <Route path="/note/note-modal:noteId" element={<NoteModal />} />
+                    </Route>
+                </Routes>
             </main>
 
         </section>
