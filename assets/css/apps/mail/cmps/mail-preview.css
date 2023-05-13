@@ -7,12 +7,10 @@
     display: grid;
     grid-template-columns: 1fr 4fr 12fr 2fr;
     gap: 1em;
-    border-radius: 2px;
-    border: 1px solid black;
+    border-bottom: 1px solid #e3e9f0;
     text-decoration: none;
     margin: 2px;
     background-color: #ffffff;
-    /* height: 100%; */
     padding: 1.2%;
     align-items: center;
     font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;

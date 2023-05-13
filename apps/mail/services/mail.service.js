@@ -51,14 +51,6 @@ export const mailService = {
     getDefaultFilter,
 }
 
-function query() {
-    return storageService.query(MAIL_KEY)
-        .then(mails => {
-            console.log(mails);
-            return mails
-        })
-}
-
 function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
