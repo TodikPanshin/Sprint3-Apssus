@@ -42,8 +42,8 @@ export function MailEdit({ closeModal, loadMails }) {
 
 
     return (
-        < section className="mail-edit grid" >
-            <h2 className="title">New Mail</h2>
+        < section className="mail-edit modal grid" >
+            <h3 className="title" onClick={onDelete}>New Mail</h3>
             <form onSubmit={onSaveMail} className="grid book-edit-form">
                 <input required onChange={handleChange} value={to} type="text" name="to" id="to" placeholder="To" />
 
